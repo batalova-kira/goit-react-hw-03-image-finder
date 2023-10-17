@@ -1,7 +1,9 @@
-export const Button = ({ onSubmit }) => {
+import { BtnLoadMore } from './Button.styled';
+
+export function Button({ onClickMore }) {
   return (
-    <div>
-      <button>Load more</button>
-    </div>
+    <BtnLoadMore type="button" onClick={onClickMore}>
+      LOAD MORE
+    </BtnLoadMore>
   );
-};
+}

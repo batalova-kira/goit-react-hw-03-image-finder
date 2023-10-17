@@ -1,38 +1,11 @@
-// import { ErrorMessage, Form, Formik } from 'formik';
-// import * as Yup from 'yup';
-
+import { HiOutlineSearch } from 'react-icons/hi';
 import { Component } from 'react';
-
-// export const SearchBar = ({ onSubmitSearch }) => {
-//   return (
-//     <Formik
-//       initialValues={{
-//         filter: '',
-//       }}
-//       onSubmit={(values, actions) => {
-//         onSubmitSearch(values);
-//         actions.resetForm({
-//           values: {
-//             filter: '',
-//           },
-//         });
-//       }}
-//     >
-//       <Form>
-//         <label htmlFor="filter">Search</label>
-//         <input
-//           type="text"
-//           name="filter"
-//           autoComplete="off"
-//           placeholder="Search images and photos"
-//         />
-//         <ErrorMessage name="filter" component="div" />
-
-//         <button type="submit">Search</button>
-//       </Form>
-//     </Formik>
-//   );
-// };
+import {
+  SearchForm,
+  SearchFormButton,
+  SearchFormInput,
+  SearchWrapper,
+} from './Searchbar.styled';
 
 export class SearchBar extends Component {
   state = {
@@ -40,7 +13,6 @@ export class SearchBar extends Component {
   };
 
   handleNameChange = e => {
-    console.log(e.target.value);
     this.setState({ searchValue: e.target.value });
   };
 
@@ -58,11 +30,12 @@ export class SearchBar extends Component {
     const { searchValue } = this.state;
 
     return (
-      <header>
-        <form onSubmit={this.handleSubmit}>
-          <button type="submit">Search</button>
-
-          <input
+      <SearchWrapper>
+        <SearchForm onSubmit={this.handleSubmit}>
+          <SearchFormButton type="submit">
+            <HiOutlineSearch size={22} />
+          </SearchFormButton>
+          <SearchFormInput
             value={searchValue}
             name="searchValue"
             type="text"
@@ -71,8 +44,8 @@ export class SearchBar extends Component {
             placeholder="Search images and photos"
             onChange={this.handleNameChange}
           />
-        </form>
-      </header>
+        </SearchForm>
+      </SearchWrapper>
     );
   }
 }
