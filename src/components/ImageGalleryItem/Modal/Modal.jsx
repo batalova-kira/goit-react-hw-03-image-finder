@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import Modal from 'react-modal';
+import { Overlay } from './Modal.styled';
 
 const customStyles = {
   content: {
@@ -9,6 +10,7 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    padding: 0,
   },
 };
 
@@ -24,14 +26,16 @@ export class ModalImage extends Component {
   render() {
     const { isOpenModal, tags, largeImg } = this.props;
     return (
-      <Modal
-        isOpen={isOpenModal}
-        onRequestClose={this.onModalCLose}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <img src={largeImg} alt={tags} />
-      </Modal>
+      <Overlay>
+        <Modal
+          isOpen={isOpenModal}
+          onRequestClose={this.onModalCLose}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <img src={largeImg} alt={tags} />
+        </Modal>
+      </Overlay>
     );
   }
 }
