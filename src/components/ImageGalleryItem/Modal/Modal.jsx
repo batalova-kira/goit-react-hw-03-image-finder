@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { Overlay } from './Modal.styled';
 
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+Modal.defaultStyles.overlay.border = 'rgba(0, 0, 0, 0.8)';
 const customStyles = {
   content: {
     top: '50%',
