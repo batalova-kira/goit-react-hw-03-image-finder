@@ -1,4 +1,5 @@
 import { ThreeDots } from 'react-loader-spinner';
+import { ErrorMessage } from './Loader.styled';
 export const Loader = () => {
   return (
     <ThreeDots
@@ -9,5 +10,13 @@ export const Loader = () => {
       ariaLabel="three-dots-loading"
       visible={true}
     />
+  );
+};
+
+export const Error = () => {
+  return (
+    <ErrorMessage>
+      <p>Whoops! Error! Please, reload the page! </p>
+    </ErrorMessage>
   );
 };
